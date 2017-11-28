@@ -1,4 +1,4 @@
-# Tiny LRU
+# lru-cache-js
 
 A JavaScript Library About Least Recently Used Cache, Which Can Use In Client or Server.
 

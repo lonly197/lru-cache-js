@@ -4,22 +4,33 @@ A JavaScript Library About Least Recently Used Cache, Which Can Use In Client or
 
 [![build status](https://secure.travis-ci.org/avoidwork/tiny-lru.svg)](http://travis-ci.org/avoidwork/tiny-lru)
 
-```javascript
-const cache = lru(500);
+## Installation:
+
+```JavaScript
+npm install lru-cache-js --save
+```
+
+## Usage
+
+```JavaScript
+import lru from 'lru-cache-js'
+const cache = lru(500)
 ```
 
 Lodash provides a `memoize` function with a cache that can be swapped out as long as it implements the right interface.
 See the [lodash docs](https://lodash.com/docs#memoize) for more on `memoize`.
 
 #### Example
-```javascript
+```JavaScript
 _.memoize.Cache = lru().constructor;
 const memoized = _.memoize(myFunc);
 memoized.cache.max = 10;
 ```
 
-## clear
-### Method
+## API
+
+### clear
+#### Method
 
 Clears the contents of the cache
 
@@ -27,12 +38,12 @@ Clears the contents of the cache
 
 **Example**
 
-```javascript
+```JavaScript
 cache.clear();
 ```
 
-## evict
-### Method
+### evict
+#### Method
 
 Evicts the least recently used item from cache
 
@@ -40,25 +51,25 @@ Evicts the least recently used item from cache
 
 **Example**
 
-```javascript
+```JavaScript
 cache.evict();
 ```
 
-## first
-### Property
+### first
+#### Property
 
 Item in "first" or "top" position
 
 **Example**
 
-```javascript
+```JavaScript
 const cache = lru();
 
 cache.first; // null - it's a new cache!
 ```
 
-## get
-### Method
+### get
+#### Method
 
 Gets cached item and moves it to the front
 
@@ -67,44 +78,44 @@ Gets cached item and moves it to the front
 
 **Example**
 
-```javascript
+```JavaScript
 const item = cache.get("myKey");
 ```
 
-## items
-### Property
+### items
+#### Property
 
 Hash of cache items
 
 **Example**
 
-```javascript
+```JavaScript
 const cache = lru();
 
 cache.items; // {}
 ```
 
-## max
-### Property
+### max
+#### Property
 
 Max items to hold in cache (1000)
 
 **Example**
 
-```javascript
+```JavaScript
 const cache = lru(500);
 
 cache.max; // 500
 ```
 
-## notify
-### Property
+### notify
+#### Property
 
 Executes `onchange(eventName, serializedCache)` on the next tick when the cache changes
 
 **Example**
 
-```javascript
+```JavaScript
 const cache = lru();
 
 cache.notify = true;
@@ -113,14 +124,14 @@ cache.onchange = (event, serializedCache) => {
 };
 ```
 
-## onchange
-### Method
+### onchange
+#### Method
 
 Accepts `eventName` & `serializedCache` arguments
 
 **Example**
 
-```javascript
+```JavaScript
 const cache = lru();
 
 cache.notify = true;
@@ -129,34 +140,34 @@ cache.onchange = (event, serializedCache) => {
 };
 ````
 
-## last
-### Property
+### last
+#### Property
 
 Item in "last" or "bottom" position
 
 **Example**
 
-```javascript
+```JavaScript
 const cache = lru();
 
 cache.last; // null - it's a new cache!
 ```
 
-## length
-### Property
+### length
+#### Property
 
 Number of items in cache
 
 **Example**
 
-```javascript
+```JavaScript
 const cache = lru();
 
 cache.length; // 0 - it's a new cache!
 ```
 
-## remove
-### Method
+### remove
+#### Method
 
 Removes item from cache
 
@@ -165,12 +176,12 @@ Removes item from cache
 
 **Example**
 
-```javascript
+```JavaScript
 const staleItem = cache.remove("myKey");
 ```
 
-## reset
-### Method
+### reset
+#### Method
 
 Resets the cache to it's original state
 
@@ -178,12 +189,12 @@ Resets the cache to it's original state
 
 **Example**
 
-```javascript
+```JavaScript
 cache.reset();
 ```
 
-## set
-### Method
+### set
+#### Method
 
 Sets item in cache as `first`
 
@@ -193,7 +204,7 @@ Sets item in cache as `first`
 
 **Example**
 
-```javascript
+```JavaScript
 cache.set("myKey", {prop: true});
 ```
 
